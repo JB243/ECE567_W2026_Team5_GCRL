@@ -1,7 +1,6 @@
 # ECE567_W2026_Team5_1
-Online Goal-Conditioned Reinforcement Learning
 
-This repository was created to evaluate the reproducibility of online goal-conditioned reinforcement learning.
+This repository was created to evaluate the reproducibility of Online Goal-Conditioned Reinforcement Learning.
 
 ---
 
