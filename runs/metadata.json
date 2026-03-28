@@ -1,0 +1,727 @@
+{
+  "project": "jaxgcrl_paper",
+  "total_runs_found": 120,
+  "fetch_date": "2026-03-26T12:37:55.976895",
+  "runs": [
+    {
+      "name": "sac_ant_ball_s0",
+      "id": "2xwilnd0",
+      "csv_file": "jaxgcrl_paper/sac_ant_ball_s0.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_ball_s1",
+      "id": "e3axnykb",
+      "csv_file": "jaxgcrl_paper/sac_ant_ball_s1.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_ball_s2",
+      "id": "v7l6qzqo",
+      "csv_file": "jaxgcrl_paper/sac_ant_ball_s2.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_ball_s3",
+      "id": "d207qim7",
+      "csv_file": "jaxgcrl_paper/sac_ant_ball_s3.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_ball_s4",
+      "id": "v09i5o6r",
+      "csv_file": "jaxgcrl_paper/sac_ant_ball_s4.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_ball_s5",
+      "id": "b81z0na7",
+      "csv_file": "jaxgcrl_paper/sac_ant_ball_s5.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_ball_s6",
+      "id": "4ogcqjbz",
+      "csv_file": "jaxgcrl_paper/sac_ant_ball_s6.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_ball_s7",
+      "id": "4qm1sknm",
+      "csv_file": "jaxgcrl_paper/sac_ant_ball_s7.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_ball_s8",
+      "id": "8cxuqpt6",
+      "csv_file": "jaxgcrl_paper/sac_ant_ball_s8.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_ball_s9",
+      "id": "vqz2j3zb",
+      "csv_file": "jaxgcrl_paper/sac_ant_ball_s9.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_u_maze_s0",
+      "id": "x0tjvyz8",
+      "csv_file": "jaxgcrl_paper/sac_ant_u_maze_s0.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_u_maze_s1",
+      "id": "p0rhrzj2",
+      "csv_file": "jaxgcrl_paper/sac_ant_u_maze_s1.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_u_maze_s2",
+      "id": "pga97bzi",
+      "csv_file": "jaxgcrl_paper/sac_ant_u_maze_s2.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_u_maze_s3",
+      "id": "kaccd96q",
+      "csv_file": "jaxgcrl_paper/sac_ant_u_maze_s3.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_u_maze_s4",
+      "id": "sum2un0n",
+      "csv_file": "jaxgcrl_paper/sac_ant_u_maze_s4.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_u_maze_s5",
+      "id": "kt6awae7",
+      "csv_file": "jaxgcrl_paper/sac_ant_u_maze_s5.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_u_maze_s6",
+      "id": "2e7urrcf",
+      "csv_file": "jaxgcrl_paper/sac_ant_u_maze_s6.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_u_maze_s7",
+      "id": "tle7zvjl",
+      "csv_file": "jaxgcrl_paper/sac_ant_u_maze_s7.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_u_maze_s8",
+      "id": "3b7cxl8v",
+      "csv_file": "jaxgcrl_paper/sac_ant_u_maze_s8.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_ant_u_maze_s9",
+      "id": "1qahtahy",
+      "csv_file": "jaxgcrl_paper/sac_ant_u_maze_s9.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_ball_s0",
+      "id": "264czlhg",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_ball_s0.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_ball_s1",
+      "id": "9bug0uc0",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_ball_s1.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_ball_s2",
+      "id": "slgfnt2l",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_ball_s2.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_ball_s3",
+      "id": "io5rhflk",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_ball_s3.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_ball_s4",
+      "id": "6vr7n94x",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_ball_s4.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_ball_s5",
+      "id": "hk1l70s2",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_ball_s5.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_ball_s6",
+      "id": "6ertmvor",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_ball_s6.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_ball_s7",
+      "id": "jsi4e3bw",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_ball_s7.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_ball_s8",
+      "id": "amcwdjnw",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_ball_s8.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_ball_s9",
+      "id": "hbqgbax2",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_ball_s9.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_u_maze_s0",
+      "id": "r2f6mu60",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_u_maze_s0.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_u_maze_s1",
+      "id": "bln8dh7x",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_u_maze_s1.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_u_maze_s2",
+      "id": "0200p8uj",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_u_maze_s2.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_u_maze_s3",
+      "id": "t90y5jem",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_u_maze_s3.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_u_maze_s4",
+      "id": "34l8vyh7",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_u_maze_s4.csv",
+      "rows": 197
+    },
+    {
+      "name": "sac_her_ant_u_maze_s5",
+      "id": "j4z3qnsb",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_u_maze_s5.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_u_maze_s6",
+      "id": "lnrd9763",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_u_maze_s6.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_u_maze_s7",
+      "id": "0gdiftjc",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_u_maze_s7.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_u_maze_s8",
+      "id": "3ztvthsj",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_u_maze_s8.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_ant_u_maze_s9",
+      "id": "bm3af569",
+      "csv_file": "jaxgcrl_paper/sac_her_ant_u_maze_s9.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_humanoid_s0",
+      "id": "874lywrs",
+      "csv_file": "jaxgcrl_paper/sac_her_humanoid_s0.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_humanoid_s1",
+      "id": "cbs98rg1",
+      "csv_file": "jaxgcrl_paper/sac_her_humanoid_s1.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_humanoid_s2",
+      "id": "5roibyso",
+      "csv_file": "jaxgcrl_paper/sac_her_humanoid_s2.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_humanoid_s3",
+      "id": "zvhy9x8p",
+      "csv_file": "jaxgcrl_paper/sac_her_humanoid_s3.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_humanoid_s4",
+      "id": "x4qcp9tg",
+      "csv_file": "jaxgcrl_paper/sac_her_humanoid_s4.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_humanoid_s5",
+      "id": "0g4h3kji",
+      "csv_file": "jaxgcrl_paper/sac_her_humanoid_s5.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_humanoid_s6",
+      "id": "w6grkr7f",
+      "csv_file": "jaxgcrl_paper/sac_her_humanoid_s6.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_humanoid_s7",
+      "id": "owkof6l4",
+      "csv_file": "jaxgcrl_paper/sac_her_humanoid_s7.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_humanoid_s8",
+      "id": "60wqp3l0",
+      "csv_file": "jaxgcrl_paper/sac_her_humanoid_s8.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_humanoid_s9",
+      "id": "wk34xh12",
+      "csv_file": "jaxgcrl_paper/sac_her_humanoid_s9.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_reacher_table2_s0",
+      "id": "enk2anvr",
+      "csv_file": "jaxgcrl_paper/sac_her_reacher_table2_s0.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_reacher_table2_s1",
+      "id": "yxw0hi16",
+      "csv_file": "jaxgcrl_paper/sac_her_reacher_table2_s1.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_reacher_table2_s2",
+      "id": "w6xxyul1",
+      "csv_file": "jaxgcrl_paper/sac_her_reacher_table2_s2.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_reacher_table2_s3",
+      "id": "98lp4hxf",
+      "csv_file": "jaxgcrl_paper/sac_her_reacher_table2_s3.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_reacher_table2_s4",
+      "id": "n312nbf5",
+      "csv_file": "jaxgcrl_paper/sac_her_reacher_table2_s4.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_reacher_table2_s5",
+      "id": "21lamv58",
+      "csv_file": "jaxgcrl_paper/sac_her_reacher_table2_s5.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_reacher_table2_s6",
+      "id": "d8u7q0r5",
+      "csv_file": "jaxgcrl_paper/sac_her_reacher_table2_s6.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_reacher_table2_s7",
+      "id": "b8l9f2w0",
+      "csv_file": "jaxgcrl_paper/sac_her_reacher_table2_s7.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_reacher_table2_s8",
+      "id": "w5kmt3nr",
+      "csv_file": "jaxgcrl_paper/sac_her_reacher_table2_s8.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_her_reacher_table2_s9",
+      "id": "qnnq1tc8",
+      "csv_file": "jaxgcrl_paper/sac_her_reacher_table2_s9.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_humanoid_s0",
+      "id": "0ad3bxxo",
+      "csv_file": "jaxgcrl_paper/sac_humanoid_s0.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_humanoid_s1",
+      "id": "bva15854",
+      "csv_file": "jaxgcrl_paper/sac_humanoid_s1.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_humanoid_s2",
+      "id": "bg8nudc0",
+      "csv_file": "jaxgcrl_paper/sac_humanoid_s2.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_humanoid_s3",
+      "id": "fuyqwr1f",
+      "csv_file": "jaxgcrl_paper/sac_humanoid_s3.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_humanoid_s4",
+      "id": "7k93x7c2",
+      "csv_file": "jaxgcrl_paper/sac_humanoid_s4.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_humanoid_s5",
+      "id": "0bboxoba",
+      "csv_file": "jaxgcrl_paper/sac_humanoid_s5.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_humanoid_s6",
+      "id": "m661w5fg",
+      "csv_file": "jaxgcrl_paper/sac_humanoid_s6.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_humanoid_s7",
+      "id": "9xslfbom",
+      "csv_file": "jaxgcrl_paper/sac_humanoid_s7.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_humanoid_s8",
+      "id": "sppnpg6r",
+      "csv_file": "jaxgcrl_paper/sac_humanoid_s8.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_humanoid_s9",
+      "id": "k6bixoqh",
+      "csv_file": "jaxgcrl_paper/sac_humanoid_s9.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_reacher_table2_s0",
+      "id": "c8flsotb",
+      "csv_file": "jaxgcrl_paper/sac_reacher_table2_s0.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_reacher_table2_s1",
+      "id": "9btyoea5",
+      "csv_file": "jaxgcrl_paper/sac_reacher_table2_s1.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_reacher_table2_s2",
+      "id": "zx64pywv",
+      "csv_file": "jaxgcrl_paper/sac_reacher_table2_s2.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_reacher_table2_s3",
+      "id": "r2pe3sxe",
+      "csv_file": "jaxgcrl_paper/sac_reacher_table2_s3.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_reacher_table2_s4",
+      "id": "jb7rv8ou",
+      "csv_file": "jaxgcrl_paper/sac_reacher_table2_s4.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_reacher_table2_s5",
+      "id": "ej2lozqa",
+      "csv_file": "jaxgcrl_paper/sac_reacher_table2_s5.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_reacher_table2_s6",
+      "id": "r7v62a80",
+      "csv_file": "jaxgcrl_paper/sac_reacher_table2_s6.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_reacher_table2_s7",
+      "id": "352aonb2",
+      "csv_file": "jaxgcrl_paper/sac_reacher_table2_s7.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_reacher_table2_s8",
+      "id": "iwn6jcob",
+      "csv_file": "jaxgcrl_paper/sac_reacher_table2_s8.csv",
+      "rows": 201
+    },
+    {
+      "name": "sac_reacher_table2_s9",
+      "id": "7jq0qp5m",
+      "csv_file": "jaxgcrl_paper/sac_reacher_table2_s9.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_ball_s0",
+      "id": "w6rh1y7t",
+      "csv_file": "jaxgcrl_paper/td3_ant_ball_s0.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_ball_s1",
+      "id": "qg4fwqwm",
+      "csv_file": "jaxgcrl_paper/td3_ant_ball_s1.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_ball_s2",
+      "id": "1hx2yh9n",
+      "csv_file": "jaxgcrl_paper/td3_ant_ball_s2.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_ball_s3",
+      "id": "0f32ciao",
+      "csv_file": "jaxgcrl_paper/td3_ant_ball_s3.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_ball_s4",
+      "id": "bm7g331k",
+      "csv_file": "jaxgcrl_paper/td3_ant_ball_s4.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_ball_s5",
+      "id": "p14asw2j",
+      "csv_file": "jaxgcrl_paper/td3_ant_ball_s5.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_ball_s6",
+      "id": "8i5dksyq",
+      "csv_file": "jaxgcrl_paper/td3_ant_ball_s6.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_ball_s7",
+      "id": "0yeuc8kp",
+      "csv_file": "jaxgcrl_paper/td3_ant_ball_s7.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_ball_s8",
+      "id": "9ae8z8t7",
+      "csv_file": "jaxgcrl_paper/td3_ant_ball_s8.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_ball_s9",
+      "id": "h20gfmlh",
+      "csv_file": "jaxgcrl_paper/td3_ant_ball_s9.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_u_maze_s0",
+      "id": "yrx0pf8x",
+      "csv_file": "jaxgcrl_paper/td3_ant_u_maze_s0.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_u_maze_s1",
+      "id": "ixb7c4sa",
+      "csv_file": "jaxgcrl_paper/td3_ant_u_maze_s1.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_u_maze_s2",
+      "id": "42vd9jxr",
+      "csv_file": "jaxgcrl_paper/td3_ant_u_maze_s2.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_u_maze_s3",
+      "id": "35zy7jz8",
+      "csv_file": "jaxgcrl_paper/td3_ant_u_maze_s3.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_u_maze_s4",
+      "id": "c81yu92o",
+      "csv_file": "jaxgcrl_paper/td3_ant_u_maze_s4.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_u_maze_s5",
+      "id": "cpojycmh",
+      "csv_file": "jaxgcrl_paper/td3_ant_u_maze_s5.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_u_maze_s6",
+      "id": "pnoc14sw",
+      "csv_file": "jaxgcrl_paper/td3_ant_u_maze_s6.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_u_maze_s7",
+      "id": "jrpajeak",
+      "csv_file": "jaxgcrl_paper/td3_ant_u_maze_s7.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_u_maze_s8",
+      "id": "mp29vje2",
+      "csv_file": "jaxgcrl_paper/td3_ant_u_maze_s8.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_ant_u_maze_s9",
+      "id": "hvt4497d",
+      "csv_file": "jaxgcrl_paper/td3_ant_u_maze_s9.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_humanoid_s0",
+      "id": "j716xyjj",
+      "csv_file": "jaxgcrl_paper/td3_humanoid_s0.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_humanoid_s1",
+      "id": "722h3s0x",
+      "csv_file": "jaxgcrl_paper/td3_humanoid_s1.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_humanoid_s2",
+      "id": "03nqfdlt",
+      "csv_file": "jaxgcrl_paper/td3_humanoid_s2.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_humanoid_s3",
+      "id": "dbwgk5en",
+      "csv_file": "jaxgcrl_paper/td3_humanoid_s3.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_humanoid_s4",
+      "id": "3i21z9fh",
+      "csv_file": "jaxgcrl_paper/td3_humanoid_s4.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_humanoid_s5",
+      "id": "w4ewztry",
+      "csv_file": "jaxgcrl_paper/td3_humanoid_s5.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_humanoid_s6",
+      "id": "b32b75mp",
+      "csv_file": "jaxgcrl_paper/td3_humanoid_s6.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_humanoid_s7",
+      "id": "ipmzqyxf",
+      "csv_file": "jaxgcrl_paper/td3_humanoid_s7.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_humanoid_s8",
+      "id": "jvpzq0um",
+      "csv_file": "jaxgcrl_paper/td3_humanoid_s8.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_humanoid_s9",
+      "id": "gn4kyjwh",
+      "csv_file": "jaxgcrl_paper/td3_humanoid_s9.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_reacher_table2_s0",
+      "id": "s286u0n7",
+      "csv_file": "jaxgcrl_paper/td3_reacher_table2_s0.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_reacher_table2_s1",
+      "id": "ztorf4zz",
+      "csv_file": "jaxgcrl_paper/td3_reacher_table2_s1.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_reacher_table2_s2",
+      "id": "z4k3avwx",
+      "csv_file": "jaxgcrl_paper/td3_reacher_table2_s2.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_reacher_table2_s3",
+      "id": "1w9thj32",
+      "csv_file": "jaxgcrl_paper/td3_reacher_table2_s3.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_reacher_table2_s4",
+      "id": "10npnd04",
+      "csv_file": "jaxgcrl_paper/td3_reacher_table2_s4.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_reacher_table2_s5",
+      "id": "xft105rt",
+      "csv_file": "jaxgcrl_paper/td3_reacher_table2_s5.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_reacher_table2_s6",
+      "id": "dq1tryyo",
+      "csv_file": "jaxgcrl_paper/td3_reacher_table2_s6.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_reacher_table2_s7",
+      "id": "wn3k7116",
+      "csv_file": "jaxgcrl_paper/td3_reacher_table2_s7.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_reacher_table2_s8",
+      "id": "zdvt79gd",
+      "csv_file": "jaxgcrl_paper/td3_reacher_table2_s8.csv",
+      "rows": 201
+    },
+    {
+      "name": "td3_reacher_table2_s9",
+      "id": "r2r3im9l",
+      "csv_file": "jaxgcrl_paper/td3_reacher_table2_s9.csv",
+      "rows": 201
+    }
+  ]
+}

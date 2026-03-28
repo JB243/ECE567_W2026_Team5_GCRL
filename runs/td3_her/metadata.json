@@ -1,0 +1,127 @@
+{
+  "algorithm": "td3_her",
+  "environments": {
+    "ant_ball": {
+      "seeds": [
+        "9",
+        "8",
+        "7",
+        "6",
+        "5",
+        "4",
+        "3",
+        "2",
+        "1",
+        "0"
+      ],
+      "seed_count": 10,
+      "mean_final_success": 0.0,
+      "min_final_success": 0.0,
+      "max_final_success": 0.0,
+      "final_success_rates": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "ant_u_maze": {
+      "seeds": [
+        "9",
+        "8",
+        "7",
+        "6",
+        "5",
+        "4",
+        "3",
+        "2",
+        "1",
+        "0"
+      ],
+      "seed_count": 10,
+      "mean_final_success": 0.080859375,
+      "min_final_success": 0.0,
+      "max_final_success": 0.15625,
+      "final_success_rates": [
+        0.11328125,
+        0.12890625,
+        0.0,
+        0.0,
+        0.140625,
+        0.0,
+        0.0,
+        0.13671875,
+        0.15625,
+        0.1328125
+      ]
+    },
+    "reacher": {
+      "seeds": [
+        "2",
+        "9",
+        "8",
+        "7",
+        "6",
+        "5",
+        "4",
+        "3",
+        "1",
+        "0"
+      ],
+      "seed_count": 10,
+      "mean_final_success": 1.0,
+      "min_final_success": 1.0,
+      "max_final_success": 1.0,
+      "final_success_rates": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "humanoid": {
+      "seeds": [
+        "9",
+        "8",
+        "7",
+        "6",
+        "5",
+        "4",
+        "3",
+        "2",
+        "1",
+        "0"
+      ],
+      "seed_count": 10,
+      "mean_final_success": 0.0,
+      "min_final_success": 0.0,
+      "max_final_success": 0.0,
+      "final_success_rates": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "total_seed_files": 40,
+  "data_source": "archived/ECE567-wandb-chunyu"
+}

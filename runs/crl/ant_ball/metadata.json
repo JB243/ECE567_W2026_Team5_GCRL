@@ -1,0 +1,28 @@
+{
+  "source_file": "wandb_export_2026-03-26T12_36_43.481-04_00.csv",
+  "algorithm": "crl_ant",
+  "environment": "ball",
+  "total_seeds": 10,
+  "seeds": [
+    9,
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "data_points_per_seed": 200,
+  "step_range": {
+    "min": 1333248,
+    "max": 51869696
+  },
+  "success_rate_stats": {
+    "min": 0.0,
+    "max": 0.2421875,
+    "mean": 0.08322265625
+  }
+}

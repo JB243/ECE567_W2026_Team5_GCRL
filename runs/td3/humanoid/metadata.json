@@ -1,0 +1,28 @@
+{
+  "source_file": "wandb_export_2026-03-27T16_09_39.182-04_00.csv",
+  "algorithm": "td3",
+  "environment": "humanoid",
+  "total_seeds": 10,
+  "seeds": [
+    9,
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "data_points_per_seed": 199,
+  "step_range": {
+    "min": 523776,
+    "max": 50806272
+  },
+  "success_rate_stats": {
+    "min": 0.0,
+    "max": 0.0,
+    "mean": 0.0
+  }
+}
