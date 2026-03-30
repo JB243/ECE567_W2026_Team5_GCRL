@@ -8,14 +8,9 @@ This repository was created to evaluate the reproducibility of Online Goal-Condi
 
 * [JaxGCRL](https://github.com/MichalBortkiewicz/JaxGCRL) 
 
-Our experiments use JaxGCRL suite of simulated environments described in Section 4.2. We evaluate
-algorithms in an online setting, with a UTD ratio 1:16 for CRL, TD3, TD3+HER, SAC, SAC+HER,
-and 1 : 5 for PPO. We use a batch size of 256 and a discount factor of 0.99 for all methods except
-PPO, for which we use a discount factor of 0.97. For every environment, we sample evaluation
-goals from the same distribution as training ones and use a replay buffer of size 10M for CRL, TD3,
-TD3+HER, SAC, and SAC+HER. We use 1024 parallel environments for all methods except for
-PPO, where we use 4096 parallel environments to collect data. All experiments are conducted for 50
-million environment steps.
+## Experimental Setup
+
+Our experiments use JaxGCRL suite of simulated environments. We evaluate algorithms in an online setting, with a UTD ratio 1:16 for CRL, TD3, TD3+HER, SAC, SAC+HER, and 1:5 for PPO. We use a batch size of 256 and a discount factor of 0.99 for all methods except PPO, for which we use a discount factor of 0.97. For every environment, we sample evaluation goals from the same distribution as training ones and use a replay buffer of size 10M for CRL, TD3, TD3+HER, SAC, and SAC+HER. We use 1024 parallel environments for all methods except for PPO, where we use 4096 parallel environments to collect data. All experiments are conducted for 50 million environment steps.
 
 ### Table 1: Environments details
 | Parameter | Value |
@@ -69,20 +64,37 @@ million environment steps.
 
 ### 📁 **Runs Directory** (Contains all benchmark runs organized by algorithm)
 - `runs/` - All benchmark runs organized by algorithm
-  - `ppo/` - PPO algorithm runs
-    - `reacher_runs/` - 10 PPO Reacher benchmark runs
-    - `humanoid_runs/` - 10 PPO Humanoid benchmark runs
-    - `ant_ball_runs/` - 10 PPO Ant Ball benchmark runs
-    - `ant_u_maze_runs/` - 10 PPO Ant U-Maze benchmark runs
-  - `sac/` - SAC algorithm runs (from Po-Yen)
-    - `ant_ball/` - 10 SAC Ant Ball runs
-    - `ant_u_maze/` - 10 SAC Ant U-Maze runs
-    - `humanoid/` - 10 SAC Humanoid runs
-    - `reacher_table2/` - 10 SAC Reacher Table2 runs
-  - `sac_her/` - SAC+HER algorithm runs (from Po-Yen)
-    - Same 4 environments as SAC (10 runs each)
-  - `td3/` - TD3 algorithm runs (from Po-Yen)
-    - Same 4 environments as SAC (10 runs each)
+    - `crl/` - CRL algorithm runs
+        - `reacher_runs/` - 10 CRL Reacher benchmark runs
+        - `humanoid_runs/` - 10 CRL Humanoid benchmark runs
+        - `ant_ball_runs/` - 10 CRL Ant Ball benchmark runs
+        - `ant_u_maze_runs/` - 10 CRL Ant U-Maze benchmark runs
+    - `ppo/` - PPO algorithm runs
+        - `reacher_runs/` - 10 PPO Reacher benchmark runs
+        - `humanoid_runs/` - 10 PPO Humanoid benchmark runs
+        - `ant_ball_runs/` - 10 PPO Ant Ball benchmark runs
+        - `ant_u_maze_runs/` - 10 PPO Ant U-Maze benchmark runs
+    - `sac/` - SAC algorithm runs
+        - `reacher_runs/` - 10 SAC Reacher benchmark runs
+        - `humanoid_runs/` - 10 SAC Humanoid benchmark runs
+        - `ant_ball_runs/` - 10 SAC Ant Ball benchmark runs
+        - `ant_u_maze_runs/` - 10 SAC Ant U-Maze benchmark runs
+    - `sac_her/` - SAC+HER algorithm runs
+        - `reacher_runs/` - 10 SAC+HER Reacher benchmark runs
+        - `humanoid_runs/` - 10 SAC+HER Humanoid benchmark runs
+        - `ant_ball_runs/` - 10 SAC+HER Ant Ball benchmark runs
+        - `ant_u_maze_runs/` - 10 SAC+HER Ant U-Maze benchmark runs
+    - `td3/` - TD3 algorithm runs
+        - `reacher_runs/` - 10 TD3 Reacher benchmark runs
+        - `humanoid_runs/` - 10 TD3 Humanoid benchmark runs
+        - `ant_ball_runs/` - 10 TD3 Ant Ball benchmark runs
+        - `ant_u_maze_runs/` - 10 TD3 Ant U-Maze benchmark runs
+    - `td3_her/` - TD3+HER algorithm runs
+        - `reacher_runs/` - 10 TD3+HER Reacher benchmark runs
+        - `humanoid_runs/` - 10 TD3+HER Humanoid benchmark runs
+        - `ant_ball_runs/` - 10 TD3+HER Ant Ball benchmark runs
+        - `ant_u_maze_runs/` - 10 TD3+HER Ant U-Maze benchmark runs
+  
 
 **Each environment directory contains:**
 - CSV files for each seed (s0-s9)
@@ -96,7 +108,7 @@ million environment steps.
   - Cross-environment analysis plots
 
 ### 📄 **Essential Scripts**
-1. `download_all_projects.py` - Downloads all runs from wandb projects listed in `ppo_envs.txt`
+1. `download_all_projects.py` - Downloads all runs from wandb projects
 2. `plot_iqm_sampled.py` - Main plotting script for IQM with standard error (samples n points from each run)
 3. `plot_all_envs_comparison.py` - Generate plots of different models running in all envs 
 
@@ -105,6 +117,19 @@ million environment steps.
 ### 1. Download all data:
 ```bash
 python download_all_projects.py
+```
+
+**Note:** Modify `download_all_projects.py` with your credentials:
+```python
+# Specify the projects to download (without username prefix)
+PROJECT_NAMES = [
+    "jaxgcrl_benchmark_ant",
+    "jaxgcrl_benchmark_humanoid", 
+    "jaxgcrl_benchmark_ant_ball",
+    "jaxgcrl_benchmark_ant_u_maze"
+]
+
+USER = "your_wandb_username"  # Replace with your actual wandb username
 ```
 
 ### 2. Generate IQM plots for a single model (50 sampled points):
