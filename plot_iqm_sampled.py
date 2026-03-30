@@ -101,9 +101,7 @@ def load_and_sample_runs_data(runs_dir, n_points=100, success_column='eval/episo
                 elif 'eval_episode_success_any' in df.columns:
                     success_data = df['eval_episode_success_any'].values
                 else:
-                    print(f"Warning: Success column '{success_column}' not found in {csv_file.name}")
-                    print(f"Available columns: {list(df.columns)}")
-                    continue
+                    raise ValueError(f"Success column '{success_column}' not found in {csv_file.name}. You must specify a valid correct column name")
             else:
                 success_data = df[success_column].values
             

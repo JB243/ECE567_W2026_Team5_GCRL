@@ -30,7 +30,7 @@ def get_available_models_for_env(env_name):
             'model_name': 'PPO',
             'success_column': 'success_rate',
             'label': 'PPO',
-            'color': 'orange'
+            'color': 'brown'
         })
     
     # For SAC - uses 'eval/episode_success_any' column
@@ -41,7 +41,7 @@ def get_available_models_for_env(env_name):
             'model_name': 'SAC',
             'success_column': 'eval/episode_success_any',
             'label': 'SAC',
-            'color': 'brown'
+            'color': 'orange'
         })
     
     # For SAC+HER - uses 'eval/episode_success_any' column
@@ -86,7 +86,7 @@ def get_available_models_for_env(env_name):
         potential_models.append({
             'runs_dir': crl_dir,
             'model_name': 'CRL',
-            'success_column': 'success_rate',
+            'success_column': 'eval/episode_success_any',
             'label': 'CRL',
             'color': 'cornflowerblue'
         })
@@ -258,7 +258,7 @@ def main():
     ]
     
     # Create output directory
-    output_dir = "env_plots/all_envs_comparison"
+    output_dir = "plots/"
     os.makedirs(output_dir, exist_ok=True)
     
     # Plot each environment
