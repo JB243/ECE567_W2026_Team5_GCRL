@@ -2,6 +2,12 @@
 
 This repository was created to evaluate the reproducibility of Online Goal-Conditioned Reinforcement Learning.
 
+<p align="center">
+  <a href="./ECE567_W2026_Team5_GCRL.pdf">
+    <img src="./ECE567_W2026_Team5_GCRL.gif" alt="ECE567 Team 5 CRL Preview" width="750">
+  </a>
+</p>
+
 ---
 
 ## Benchmark
