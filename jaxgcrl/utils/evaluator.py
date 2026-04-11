@@ -127,13 +127,7 @@ class ActorEvaluator:
                         if aggregate_episodes
                         else eval_metrics.episode_metrics[name]
                     )
-                    for name in [
-                        "reward",
-                        "success",
-                        "success_easy",
-                        "dist",
-                        "distance_from_origin",
-                    ]
+                    for name in eval_metrics.episode_metrics.keys()
                 }
             )
 

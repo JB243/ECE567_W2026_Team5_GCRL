@@ -204,7 +204,7 @@ class CRL:
         num_prefill_actor_steps = np.ceil(self.min_replay_size / self.unroll_length)
         num_training_steps_per_epoch = (config.total_env_steps - num_prefill_env_steps) // (
             config.num_evals * env_steps_per_actor_step
-        )
+        ) + 1
 
         assert num_training_steps_per_epoch > 0, (
             "total_env_steps too small for given num_envs and episode_length"
@@ -545,6 +545,7 @@ class CRL:
             key=eval_env_key,
         )
 
+        params = None
         training_walltime = 0
         logging.info("starting training....")
         for ne in range(config.num_evals):
