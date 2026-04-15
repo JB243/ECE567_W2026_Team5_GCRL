@@ -122,30 +122,36 @@ def update_critic(config, networks, transitions, training_state, key):
 
         return critic_loss, (logsumexp, I, correct, logits_pos, logits_neg)
 
-    if config["learn_temperature"]:
+    temp_state = getattr(training_state, "temp_state", None)
+    log_temp = temp_state.params["log_temp"] if temp_state is not None else jnp.zeros(())
+
+    if config.get("learn_temperature", False) and temp_state is not None:
         (loss, (logsumexp, I, correct, logits_pos, logits_neg)), (critic_grad, temp_grad) = jax.value_and_grad(
             critic_loss, argnums=(0, 1), has_aux=True
-        )(training_state.critic_state.params, training_state.temp_state.params["log_temp"], transitions, key)
-        new_temp_state = training_state.temp_state.apply_gradients(grads={"log_temp": temp_grad})
+        )(training_state.critic_state.params, log_temp, transitions, key)
+        new_temp_state = temp_state.apply_gradients(grads={"log_temp": temp_grad})
         # Clip log_temp to keep τ in [e^-4, e^4] ≈ [0.018, 54.6]
         clipped = jnp.clip(new_temp_state.params["log_temp"], -4.0, 4.0)
         new_temp_state = new_temp_state.replace(params={"log_temp": clipped})
+        training_state = training_state.replace(critic_state=training_state.critic_state.apply_gradients(grads=critic_grad), temp_state=new_temp_state)
     else:
         (loss, (logsumexp, I, correct, logits_pos, logits_neg)), critic_grad = jax.value_and_grad(
             critic_loss, argnums=0, has_aux=True
-        )(training_state.critic_state.params, training_state.temp_state.params["log_temp"], transitions, key)
-        new_temp_state = training_state.temp_state
+        )(training_state.critic_state.params, log_temp, transitions, key)
+        new_critic_state = training_state.critic_state.apply_gradients(grads=critic_grad)
+        if temp_state is not None:
+            training_state = training_state.replace(critic_state=new_critic_state)
+        else:
+            training_state = training_state.replace(critic_state=new_critic_state)
 
-    new_critic_state = training_state.critic_state.apply_gradients(grads=critic_grad)
-    training_state = training_state.replace(critic_state=new_critic_state, temp_state=new_temp_state)
-
+    cur_temp_state = getattr(training_state, "temp_state", None)
     metrics = {
         "categorical_accuracy": jnp.mean(correct),
         "logits_pos": logits_pos,
         "logits_neg": logits_neg,
         "logsumexp": logsumexp.mean(),
         "critic_loss": loss,
-        "temperature": jnp.exp(training_state.temp_state.params["log_temp"]),
+        "temperature": jnp.exp(cur_temp_state.params["log_temp"]) if cur_temp_state is not None else jnp.ones(()),
     }
 
     return training_state, metrics
