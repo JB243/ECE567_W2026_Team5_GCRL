@@ -38,6 +38,7 @@ class TrainingState:
     actor_state: TrainState
     critic_state: TrainState
     alpha_state: TrainState
+    temp_state: TrainState
 
 
 class Transition(NamedTuple):
@@ -161,6 +162,10 @@ class CRL:
 
     contrastive_loss_fn: Literal["fwd_infonce", "sym_infonce", "bwd_infonce", "binary_nce"] = "fwd_infonce"
     energy_fn: Literal["norm", "l2", "dot", "cosine"] = "norm"
+
+    # Learned temperature for InfoNCE (CLIP-style)
+    learn_temperature: bool = False
+    temp_lr: float = 3e-4
 
     def check_config(self, config):
         """
@@ -290,6 +295,14 @@ class CRL:
             tx=optax.adam(learning_rate=self.alpha_lr),
         )
 
+        # InfoNCE temperature (log_temp=0.0 => τ=1.0, same as no temperature)
+        log_temp = jnp.asarray(0.0, dtype=jnp.float32)
+        temp_state = TrainState.create(
+            apply_fn=None,
+            params={"log_temp": log_temp},
+            tx=optax.adam(learning_rate=self.temp_lr),
+        )
+
         # Trainstate
         training_state = TrainingState(
             env_steps=jnp.zeros(()),
@@ -297,6 +310,7 @@ class CRL:
             actor_state=actor_state,
             critic_state=critic_state,
             alpha_state=alpha_state,
+            temp_state=temp_state,
         )
 
         # Replay Buffer
@@ -593,6 +607,7 @@ class CRL:
                     training_state.alpha_state.params,
                     training_state.actor_state.params,
                     training_state.critic_state.params,
+                    training_state.temp_state.params,
                 )
                 path = f"{config.checkpoint_logdir}/step_{int(training_state.env_steps)}.pkl"
                 save_params(path, params)

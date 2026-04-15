@@ -91,7 +91,7 @@ def update_actor_and_alpha(config, networks, transitions, training_state, key):
 
 
 def update_critic(config, networks, transitions, training_state, key):
-    def critic_loss(critic_params, transitions, key):
+    def critic_loss(critic_params, log_temp, transitions, key):
         sa_encoder_params, g_encoder_params = (
             critic_params["sa_encoder"],
             critic_params["g_encoder"],
@@ -105,8 +105,10 @@ def update_critic(config, networks, transitions, training_state, key):
             g_encoder_params, transitions.observation[:, config["state_size"] :]
         )
 
-        # InfoNCE
+        # InfoNCE with temperature scaling
         logits = energy_fn(config["energy_fn"], sa_repr[:, None, :], g_repr[None, :, :])
+        logits = logits / jnp.exp(log_temp)
+
         critic_loss = contrastive_loss_fn(config["contrastive_loss_fn"], logits)
 
         # logsumexp regularisation
@@ -120,11 +122,22 @@ def update_critic(config, networks, transitions, training_state, key):
 
         return critic_loss, (logsumexp, I, correct, logits_pos, logits_neg)
 
-    (loss, (logsumexp, I, correct, logits_pos, logits_neg)), grad = jax.value_and_grad(
-        critic_loss, has_aux=True
-    )(training_state.critic_state.params, transitions, key)
-    new_critic_state = training_state.critic_state.apply_gradients(grads=grad)
-    training_state = training_state.replace(critic_state=new_critic_state)
+    if config["learn_temperature"]:
+        (loss, (logsumexp, I, correct, logits_pos, logits_neg)), (critic_grad, temp_grad) = jax.value_and_grad(
+            critic_loss, argnums=(0, 1), has_aux=True
+        )(training_state.critic_state.params, training_state.temp_state.params["log_temp"], transitions, key)
+        new_temp_state = training_state.temp_state.apply_gradients(grads={"log_temp": temp_grad})
+        # Clip log_temp to keep τ in [e^-4, e^4] ≈ [0.018, 54.6]
+        clipped = jnp.clip(new_temp_state.params["log_temp"], -4.0, 4.0)
+        new_temp_state = new_temp_state.replace(params={"log_temp": clipped})
+    else:
+        (loss, (logsumexp, I, correct, logits_pos, logits_neg)), critic_grad = jax.value_and_grad(
+            critic_loss, argnums=0, has_aux=True
+        )(training_state.critic_state.params, training_state.temp_state.params["log_temp"], transitions, key)
+        new_temp_state = training_state.temp_state
+
+    new_critic_state = training_state.critic_state.apply_gradients(grads=critic_grad)
+    training_state = training_state.replace(critic_state=new_critic_state, temp_state=new_temp_state)
 
     metrics = {
         "categorical_accuracy": jnp.mean(correct),
@@ -132,6 +145,7 @@ def update_critic(config, networks, transitions, training_state, key):
         "logits_neg": logits_neg,
         "logsumexp": logsumexp.mean(),
         "critic_loss": loss,
+        "temperature": jnp.exp(training_state.temp_state.params["log_temp"]),
     }
 
     return training_state, metrics

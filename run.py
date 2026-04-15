@@ -85,6 +85,7 @@ def main(config: Config):
         "training/alpha_loss",
         "training/critic_loss",
         "training/entropy",
+        "training/temperature",
         "training/sps",
     ]
 
