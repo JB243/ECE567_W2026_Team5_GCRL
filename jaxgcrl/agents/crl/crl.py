@@ -166,6 +166,9 @@ class CRL:
     # Learned temperature for InfoNCE (CLIP-style)
     learn_temperature: bool = False
     temp_lr: float = 3e-4
+    # Target entropy for the softmax distribution over negatives.
+    # max entropy = log(batch_size) = log(256) ≈ 5.55; 3.0 ≈ 20 effective negatives.
+    target_contrastive_entropy: float = 3.0
 
     def check_config(self, config):
         """

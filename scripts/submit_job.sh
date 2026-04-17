@@ -25,6 +25,7 @@ set -e
 METHOD=${1:-crl}
 ENV=${2:-ant_ball}
 SEEDS=${3:-"0 1 2 3 4 5 6 7 8 9"}
+TOTAL_STEPS=${4:-50000000}
 
 PYTHON=/scratch/mingyan_root/lalkarmi/envs/jaxgcrl/bin/python
 
@@ -48,13 +49,14 @@ for seed in $SEEDS; do
   echo "--- Seed ${seed} ---"
 
   BASE_ARGS="--env ${ENV} --seed ${seed} --num_envs ${NUM_ENVS}
-    --total_env_steps 50000000 --num_evals 500
+    --total_env_steps ${TOTAL_STEPS} --num_evals 500
     --episode_length 1000 --action_repeat 1
     --checkpoint_logdir ${CKPT_DIR}
     --wandb_project_name jaxgcrl
     --wandb_group ${METHOD}_${ENV}
     --exp_name ${METHOD}_${ENV}_seed${seed}
-    --log_wandb"
+    --log_wandb
+    --visualization_interval 99999"
 
   if [[ "$METHOD" == "crl" ]]; then
     # Use code defaults (norm + fwd_infonce + lr=3e-4), NOT the paper's table values.
@@ -103,6 +105,20 @@ for seed in $SEEDS; do
       --discounting 0.99 \
       --train_step_multiplier 1 \
       --learn_temperature
+
+  elif [[ "$METHOD" == "crl_learntemp_v2" ]]; then
+    # CRL with learned temperature using entropy-targeting loss (SAC-style).
+    # Fixes temperature drift by driving softmax entropy toward a target value.
+    XLA_PYTHON_CLIENT_MEM_FRACTION=.95 MUJOCO_GL=egl \
+    $PYTHON run.py crl $BASE_ARGS \
+      --batch_size 256 \
+      --unroll_length 62 \
+      --min_replay_size 1000 \
+      --max_replay_size 10000 \
+      --discounting 0.99 \
+      --train_step_multiplier 1 \
+      --learn_temperature \
+      --target_contrastive_entropy 3.0
 
   elif [[ "$METHOD" == "sac" ]]; then
     XLA_PYTHON_CLIENT_MEM_FRACTION=.95 MUJOCO_GL=egl \
