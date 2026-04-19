@@ -94,7 +94,7 @@ def update_critic(config, networks, transitions, training_state, key):
     temp_state = getattr(training_state, "temp_state", None)
     log_temp = temp_state.params["log_temp"] if temp_state is not None else jnp.zeros(())
 
-    def critic_loss(critic_params, transitions, key):
+    def critic_loss(critic_params, log_temp, transitions, key):
         sa_encoder_params, g_encoder_params = (
             critic_params["sa_encoder"],
             critic_params["g_encoder"],
@@ -108,10 +108,9 @@ def update_critic(config, networks, transitions, training_state, key):
             g_encoder_params, transitions.observation[:, config["state_size"] :]
         )
 
-        # Raw logits (before temperature). Temperature is stop_gradiented so
-        # critic and temperature updates are fully decoupled.
-        raw_logits = energy_fn(config["energy_fn"], sa_repr[:, None, :], g_repr[None, :, :])
-        logits = raw_logits / jnp.exp(jax.lax.stop_gradient(log_temp))
+        # InfoNCE with temperature scaling
+        logits = energy_fn(config["energy_fn"], sa_repr[:, None, :], g_repr[None, :, :])
+        logits = logits / jnp.exp(log_temp)
 
         critic_loss = contrastive_loss_fn(config["contrastive_loss_fn"], logits)
 
@@ -124,28 +123,26 @@ def update_critic(config, networks, transitions, training_state, key):
         logits_pos = jnp.sum(logits * I) / jnp.sum(I)
         logits_neg = jnp.sum(logits * (1 - I)) / jnp.sum(1 - I)
 
-        return critic_loss, (logsumexp, raw_logits, correct, logits_pos, logits_neg)
-
-    (loss, (logsumexp, raw_logits, correct, logits_pos, logits_neg)), critic_grad = jax.value_and_grad(
-        critic_loss, argnums=0, has_aux=True
-    )(training_state.critic_state.params, transitions, key)
-    new_critic_state = training_state.critic_state.apply_gradients(grads=critic_grad)
-    training_state = training_state.replace(critic_state=new_critic_state)
+        return critic_loss, (logsumexp, I, correct, logits_pos, logits_neg)
 
     if config.get("learn_temperature", False) and temp_state is not None:
-        # SAC-style entropy-targeting loss for temperature.
-        # Drives the softmax entropy toward target_contrastive_entropy so
-        # temperature converges instead of drifting indefinitely.
-        def temp_loss_fn(log_temp_param):
-            scaled = raw_logits / jnp.exp(log_temp_param)
-            probs = jax.nn.softmax(scaled, axis=1)
-            entropy = -jnp.mean(jnp.sum(probs * jnp.log(probs + 1e-8), axis=1))
-            target = config.get("target_contrastive_entropy", 3.0)
-            return log_temp_param * jax.lax.stop_gradient(entropy - target)
-
-        temp_grad = jax.grad(temp_loss_fn)(log_temp)
+        (loss, (logsumexp, I, correct, logits_pos, logits_neg)), (critic_grad, temp_grad) = jax.value_and_grad(
+            critic_loss, argnums=(0, 1), has_aux=True
+        )(training_state.critic_state.params, log_temp, transitions, key)
         new_temp_state = temp_state.apply_gradients(grads={"log_temp": temp_grad})
-        training_state = training_state.replace(temp_state=new_temp_state)
+        # Clip log_temp to keep τ in [e^-4, e^4] ≈ [0.018, 54.6]
+        clipped = jnp.clip(new_temp_state.params["log_temp"], -4.0, 4.0)
+        new_temp_state = new_temp_state.replace(params={"log_temp": clipped})
+        training_state = training_state.replace(
+            critic_state=training_state.critic_state.apply_gradients(grads=critic_grad),
+            temp_state=new_temp_state,
+        )
+    else:
+        (loss, (logsumexp, I, correct, logits_pos, logits_neg)), critic_grad = jax.value_and_grad(
+            critic_loss, argnums=0, has_aux=True
+        )(training_state.critic_state.params, log_temp, transitions, key)
+        new_critic_state = training_state.critic_state.apply_gradients(grads=critic_grad)
+        training_state = training_state.replace(critic_state=new_critic_state)
 
     cur_temp_state = getattr(training_state, "temp_state", None)
     metrics = {
