@@ -319,3 +319,8 @@ experiments/
 notebooks/data/
 notebooks/figures/
 
+
+logs/
+plots/
+.DS_Store
+JaxGCRL2/
